@@ -6,6 +6,10 @@
 
 A Base32-Crockford encoded API Key generator, validator, and converter to turn UUIDs into human readable API Keys
 
+API Keys are 31 characters in length (e.g. XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX), are fully-uppercase, tricky characters are treated equivalently (0 = O / 1 = L = I ), and the letter U is omitted to avoid common profanities.
+
+A common use for this library is to allow APIKeys to be stored in a host DB as UUID, but to display the APIKey version in its encoded form to users.
+
 ## Installation
 You can install `uuid-apikey` with NPM.
 ```shell
