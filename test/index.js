@@ -5,52 +5,52 @@ let testUUID = '0b9ca335-92a8-46d8-b277-ec2ed83ac427';
 
 describe('uuid-apikey', () => {
 
-	let MainClass = require('../');
+  let MainClass = require('../');
 
-	it('load', () => {
-		let myModule = require('../');
+  it('load', () => {
+    let myModule = require('../');
 
-		test.assert(typeof myModule == typeof MainClass);
-	});
+    test.assert(typeof myModule == typeof MainClass);
+  });
 
-	it('test good UUID', () => {
-		test.assert(MainClass.isUUID(testKey.uuid));
-	})
+  it('test good UUID', () => {
+    test.assert(MainClass.isUUID(testKey.uuid));
+  })
 
-	it('test bad UUID', () => {
-		test.assert(!MainClass.isUUID(testKey.apiKey));
-	})
+  it('test bad UUID', () => {
+    test.assert(!MainClass.isUUID(testKey.apiKey));
+  })
 
-	it('test good API Key', () => {
-		test.assert(MainClass.isAPIKey(testKey.apiKey));
-	})
+  it('test good API Key', () => {
+    test.assert(MainClass.isAPIKey(testKey.apiKey));
+  })
 
-	it('test good lower-case API Key', () => {
-		test.assert(MainClass.isAPIKey(testKey.apiKey.toLowerCase()));
-	})
+  it('test good lower-case API Key', () => {
+    test.assert(MainClass.isAPIKey(testKey.apiKey.toLowerCase()));
+  })
 
-	it('test bad API Key', () => {
-		test.assert(!MainClass.isAPIKey(testKey.uuid));
-	})
+  it('test bad API Key', () => {
+    test.assert(!MainClass.isAPIKey(testKey.uuid));
+  })
 
-	it('convert to UUID', () => {
-		test.assert(MainClass.isUUID(MainClass.toUUID(testKey.apiKey)));
-	});
+  it('convert to UUID', () => {
+    test.assert(MainClass.isUUID(MainClass.toUUID(testKey.apiKey)));
+  });
 
-	it('convert to API Key', () => {
-		test.assert(MainClass.isAPIKey(MainClass.toAPIKey(testKey.uuid)));
-	});
+  it('convert to API Key', () => {
+    test.assert(MainClass.isAPIKey(MainClass.toAPIKey(testKey.uuid)));
+  });
 
-	it('test good matching API Key / UUID', () => {
-		test.assert(MainClass.check(testKey.apiKey, testKey.uuid));
-	});
+  it('test good matching API Key / UUID', () => {
+    test.assert(MainClass.check(testKey.apiKey, testKey.uuid));
+  });
 
-	it('test not matching API Key / UUID', () => {
-		test.assert(!MainClass.check(testKey.apiKey, testUUID));
-	});
+  it('test not matching API Key / UUID', () => {
+    test.assert(!MainClass.check(testKey.apiKey, testUUID));
+  });
 
-	it('key creation', () => {
-		test.object(MainClass.create());
-	});
+  it('key creation', () => {
+    test.object(MainClass.create());
+  });
 
 });
