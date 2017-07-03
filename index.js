@@ -33,7 +33,7 @@ class UUIDAPIKey {
   }
 
   isAPIKey(apiKey) {
-	  apiKey = apiKey.replace(/-/g, '');
+	  apiKey = apiKey.toUpperCase().replace(/-/g, '');
     let re = /[0-9A-Z]*/g;
     return (apiKey.length === 28 && re.test(apiKey));
   }
