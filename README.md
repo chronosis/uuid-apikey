@@ -6,13 +6,13 @@
 
 *"API Keys for people"*
 
-A generator, validator, and converter that transform UUIDs into human-readable Base32-Crockford encoded API Keys.
+A generator, validator, and converter that transforms UUIDs into human-readable Base32-Crockford encoded API Keys.
 
- * API Keys are 31 characters in length consisting of 4 groups of 7 characters separated by dashes (e.g. XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX)
+ * API Keys are 31 characters in length consisting of 4 groups of 7 characters separated by dashes *(e.g. XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX)*
  * They avoids the problem that Base64 encoded values can create
    * Fully upper-case, but treat lower-case for their equivalents *(e.g. a = A)*
    * No tricky characters, but treat them equivalently *(i.e. 0 = O / 1 = L = I )*
-   * No characters that inadvertently lead to common profanities (i.e. letter U is omitted)  
+   * No characters that inadvertently lead to common profanities *(i.e. letter U is omitted)*
 
 
 A common use for this library is to allow UUIDs to be stored in a host DB, but to display a human-readable API Key to a user.
