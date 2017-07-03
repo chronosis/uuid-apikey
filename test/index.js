@@ -25,6 +25,10 @@ describe('uuid-apikey', () => {
 		test.assert(MainClass.isAPIKey(testKey.apiKey));
 	})
 
+	it('test good lower-case API Key', () => {
+		test.assert(MainClass.isAPIKey(testKey.apiKey.toLowerCase()));
+	})
+
 	it('test bad API Key', () => {
 		test.assert(!MainClass.isAPIKey(testKey.uuid));
 	})
