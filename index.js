@@ -87,7 +87,7 @@ class UUIDAPIKey {
   }
 
   check(apiKey, uuid) {
-    let apiTest = this.isAPIKey(apiKey);
+    let apiTest = this.isAPIKey(apiKey.toUpperCase());
     let uuidTest = this.isUUID(uuid);
     let uuidCheck;
     if (apiTest && uuidTest) {
