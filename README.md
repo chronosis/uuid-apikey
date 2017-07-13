@@ -3,6 +3,9 @@
 [![Actual version published on npm](http://img.shields.io/npm/v/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
 [![Travis build status](https://travis-ci.org/chronosis/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
 [![Total npm module downloads](http://img.shields.io/npm/dt/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
+[![npm package quality](http://npm.packagequality.com/badge/uuid-apikey.png)](https://www.npmjs.org/package/uuid-apikey)
+
+[![NPM](https://nodei.co/npm/uuid-apikey.png?downloads=true)](https://nodei.co/npm/uuid-apikey/)
 
 *"API Keys for people"*
 
