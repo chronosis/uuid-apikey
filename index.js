@@ -76,10 +76,10 @@ class UUIDAPIKey {
       let n2 = base32.decode32(e2);
       let n3 = base32.decode32(e3);
       let n4 = base32.decode32(e4);
-      let s1 = n1.toString(16);
-      let s2 = n2.toString(16);
-      let s3 = n3.toString(16);
-      let s4 = n4.toString(16);
+      let s1 = n1.toString(16).padStart(8,'0');
+      let s2 = n2.toString(16).padStart(8,'0');
+      let s3 = n3.toString(16).padStart(8,'0');
+      let s4 = n4.toString(16).padStart(8,'0');
       let s2a = s2.substr(0,4);
       let s2b = s2.substr(4,4);
       let s3a = s3.substr(0,4);
@@ -98,7 +98,8 @@ class UUIDAPIKey {
     let uuidCheck;
     if (apiTest && uuidTest) {
       uuidCheck = this.toUUID(apiKey);
-      return (uuid === uuidCheck)
+      console.log(uuidCheck);
+      return (uuid == uuidCheck)
     } else {
       let errMsg = '';
       if (!apiTest) errMsg += `The value provide '${apiKey}' is not a valid apiKey. `;
