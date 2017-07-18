@@ -17,8 +17,8 @@ A generator, validator, and converter that transforms UUIDs into human-readable 
    * No tricky characters, but treat them equivalently *(i.e. 0 = O / 1 = L = I )*
    * No characters that inadvertently lead to common profanities *(i.e. letter U is omitted)*
 
-
-A common use for this library is to allow UUIDs to be stored in a host DB, but to display a human-readable API Key to a user.
+One common use for this library is in REST APIs, by storing a UUIDs in a host DB but displaying the human-readable API Key to a user.
+Another use for this library is creating and validating product keys for distributed software.
 
 ## Installation
 You can install `uuid-apikey` with NPM.
@@ -37,7 +37,56 @@ console.log(uuidAPIKey.create());
   apiKey: '1EEA6DC-JAM4DP2-PHVYPBN-V0XCJ9X' }
 ```
 
-## Reference
+## Command Line
+`uuid-apikey` installs with a command line tool. The tool is available using the command `apiKeyTool` which can be install globally using:
+
+```
+  npm install uuid-apikey -g
+```
+
+### Options
+```shell
+$ apiKeyTool.js
+
+  Usage: apiKeyTool [options]
+
+
+  Options:
+
+    -V, --version          output the version number
+    -g, --generate         Create a new API Key/UUID pair. Ignores other parameters if passed.
+    -u, --uuid <uuid>      UUID for operation. If no other parameter is passed this is converted to an API Key.
+    -a, --apikey <apikey>  API Key for operation. If no other parameter is passed this is converted to an UUID.
+    -c, --check            Check the API Key and/or UUID provided are valid. If both API Key and UUID are passed then they are checked against each other.
+    -h, --help             output usage information
+```
+
+### Examples
+#### Generation
+```shell
+$ apiKeyTool.js -g
+
+  UUID(9b3ac4c9-0228-4e42-a244-927059b1a5ea)
+APIKey(KCXC9JD-08M4WGH-M9294W1-B6RTBTH)
+```
+#### Conversion
+```shell
+$ apiKeyTool.js -a KCXC9JD-08M4WGH-M9294W1-B6RTBTH -u 9b3ac4c9-0228-4e42-a244-927059b1a5ea
+
+UUID(9b3ac4c9-0228-4e42-a244-927059b1a5ea) => APIKey(KCXC9JD-08M4WGH-M9294W1-B6RTBTH)
+APIKey(KCXC9JD-08M4WGH-M9294W1-B6RTBTH)    => UUID(9b3ac4c9-0228-4e42-a244-927059b1a5ea)
+```
+
+#### Testing
+```shell
+$ apiKeyTool.js -a KCXC9JD-08M4WGH-M9294W1-B6RTBTH -u 9b3ac4c9-0228-4e42-a244-927059b1a5ea -c
+
+UUID(9b3ac4c9-0228-4e42-a244-927059b1a5ea) : valid
+APIKey(KCXC9JD-08M4WGH-M9294W1-B6RTBTH)    : valid
+UUID & APIKey are identical                : true
+```
+
+## API Reference
 
 ### .isUUID(uuid)
 Tests if the UUID string passed is a valid UUID.
