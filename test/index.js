@@ -10,28 +10,28 @@ describe('uuid-apikey', () => {
   it('load', () => {
     let myModule = require('../');
 
-    test.assert(typeof myModule == typeof MainClass);
+    test.assert(typeof myModule === typeof MainClass);
   });
 
   it('test good UUID', () => {
     test.assert(MainClass.isUUID(testKey.uuid));
-  })
+  });
 
   it('test bad UUID', () => {
     test.assert(!MainClass.isUUID(testKey.apiKey));
-  })
+  });
 
   it('test good API Key', () => {
     test.assert(MainClass.isAPIKey(testKey.apiKey));
-  })
+  });
 
   it('test good lower-case API Key', () => {
     test.assert(MainClass.isAPIKey(testKey.apiKey.toLowerCase()));
-  })
+  });
 
   it('test bad API Key', () => {
     test.assert(!MainClass.isAPIKey(testKey.uuid));
-  })
+  });
 
   it('convert to UUID', () => {
     test.assert(MainClass.isUUID(MainClass.toUUID(testKey.apiKey)));

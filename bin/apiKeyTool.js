@@ -12,7 +12,7 @@ program
   .option('-g, --generate', 'Create a new API Key/UUID pair. Ignores other parameters if passed.')
   .option('-u, --uuid <uuid>', 'UUID for operation. If no other parameter is passed this is converted to an API Key.')
   .option('-a, --apikey <apikey>', 'API Key for operation. If no other parameter is passed this is converted to an UUID.')
-  .option('-c, --check', 'Check the API Key and/or UUID provided are valid. If both API Key and UUID are passed then they are checked against each other.')
+  .option('-c, --check', 'Check the API Key and/or UUID provided are valid. If both API Key and UUID are passed then they are checked against each other.');
 
 program.on('--help', () => {
   console.log('');
