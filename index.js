@@ -20,13 +20,13 @@ class UUIDAPIKey {
     let test = true;
     for (let pos in positions) {
       let chr = str.charAt(positions[pos]);
-      test = test && (chr == "-");
+      test = test && (chr === '-');
     }
     return test;
   }
 
   isUUID(uuid) {
-    if (!uuid) throw new ReferenceError('The required parameter \'uuid\' is undefined.');
+    if (!uuid) { throw new ReferenceError('The required parameter \'uuid\' is undefined.'); }
     let uuidCheck = this.checkDashes([8, 13, 18], uuid);  // Only check the first three dashes as ColdFusion implementations erroneously omit the last dash
     uuid = uuid.replace(/-/g, '');
     let re = /[0-9A-Fa-f]*/g;
@@ -34,14 +34,14 @@ class UUIDAPIKey {
   }
 
   isAPIKey(apiKey) {
-    if (!apiKey) throw new ReferenceError('The required parameter \'apiKey\' is undefined.');
+    if (!apiKey) { throw new ReferenceError('The required parameter \'apiKey\' is undefined.'); }
     apiKey = apiKey.toUpperCase().replace(/-/g, '');
     let re = /[0-9A-Z]*/g;
     return (apiKey.length === 28 && re.test(apiKey));
   }
 
   toAPIKey(uuid, options) {
-    if (!uuid) throw new ReferenceError('The required parameter \'uuid\' is undefined.');
+    if (!uuid) { throw new ReferenceError('The required parameter \'uuid\' is undefined.'); }
     options = options || this.defaultOptions;
     if (this.isUUID(uuid)) {
       uuid = uuid.replace(/-/g, '');
@@ -65,7 +65,7 @@ class UUIDAPIKey {
   }
 
   toUUID(apiKey) {
-    if (!apiKey) throw new ReferenceError('The required parameter \'apiKey\' is undefined.');
+    if (!apiKey) { throw new ReferenceError('The required parameter \'apiKey\' is undefined.'); }
     if (this.isAPIKey(apiKey)) {
       apiKey = apiKey.replace(/-/g, '');
       let e1 = apiKey.substr(0,7);
@@ -91,22 +91,21 @@ class UUIDAPIKey {
   }
 
   check(apiKey, uuid) {
-    if (!apiKey) throw new ReferenceError('The required parameter \'apiKey\' is undefined.');
-    if (!uuid) throw new ReferenceError('The required parameter \'uuid\' is undefined.');
+    if (!apiKey) { throw new ReferenceError('The required parameter \'apiKey\' is undefined.'); }
+    if (!uuid) { throw new ReferenceError('The required parameter \'uuid\' is undefined.'); }
     let apiTest = this.isAPIKey(apiKey.toUpperCase());
     let uuidTest = this.isUUID(uuid);
     let uuidCheck;
     if (apiTest && uuidTest) {
       uuidCheck = this.toUUID(apiKey);
       console.log(uuidCheck);
-      return (uuid == uuidCheck)
+      return (uuid === uuidCheck)
     } else {
       let errMsg = '';
       if (!apiTest) errMsg += `The value provide '${apiKey}' is not a valid apiKey. `;
       if (!uuidTest) errMsg += `The value provide '${uuid}' is not a valid uuid. `;
       throw(new TypeError(errMsg));
     }
-    return false;
   }
 
   create(options) {
