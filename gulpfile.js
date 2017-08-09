@@ -17,7 +17,7 @@ gulp.task('test', ['lint'], () => {
     .pipe(mocha())
     .once('error', function() {
       process.exit(1);
-    })
+    });
 });
 
 gulp.task('default', ['test']);

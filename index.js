@@ -13,7 +13,7 @@ class UUIDAPIKey {
   constructor() {
     this.defaultOptions = {
       noDashes: false
-    }
+    };
   }
 
   checkDashes(positions, str) {
@@ -57,7 +57,7 @@ class UUIDAPIKey {
       let e2 = base32.encode32(n2);
       let e3 = base32.encode32(n3);
       let e4 = base32.encode32(n4);
-      if (options.noDashes) return `${e1}${e2}${e3}${e4}`;
+      if (options.noDashes) { return `${e1}${e2}${e3}${e4}`; }
       return `${e1}-${e2}-${e3}-${e4}`;
     } else {
       throw(new TypeError(`The value provide '${uuid}' is not a valid uuid.`));
@@ -99,11 +99,11 @@ class UUIDAPIKey {
     if (apiTest && uuidTest) {
       uuidCheck = this.toUUID(apiKey);
       console.log(uuidCheck);
-      return (uuid === uuidCheck)
+      return (uuid === uuidCheck);
     } else {
       let errMsg = '';
-      if (!apiTest) errMsg += `The value provide '${apiKey}' is not a valid apiKey. `;
-      if (!uuidTest) errMsg += `The value provide '${uuid}' is not a valid uuid. `;
+      if (!apiTest) { errMsg += `The value provide '${apiKey}' is not a valid apiKey. `; }
+      if (!uuidTest) { errMsg += `The value provide '${uuid}' is not a valid uuid. `; }
       throw(new TypeError(errMsg));
     }
   }
