@@ -1,1 +1,1 @@
-module.exports = { main: 'index.js', binFolder: 'lib/', testFolder: 'test/' };
+module.exports = { main: 'index.js', binFolder: 'bin/', testFolder: 'test/' };
