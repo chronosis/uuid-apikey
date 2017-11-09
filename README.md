@@ -5,9 +5,9 @@
 [![Actual version published on npm](http://img.shields.io/npm/v/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
 [![Travis build status](https://travis-ci.org/chronosis/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
 [![Total npm module downloads](http://img.shields.io/npm/dt/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
-[![npm package quality](http://npm.packagequality.com/shield/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
+[![Package Quality](http://npm.packagequality.com/shield/uuid-apikey.svg)](http://packagequality.com/#?package=uuid-apikey)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6c4ea28976c54c0493f8c0a4e742a95a)](https://www.codacy.com/app/chronosis/uuid-apikey?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chronosis/uuid-apikey&amp;utm_campaign=Badge_Grade)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/6c4ea28976c54c0493f8c0a4e742a95a)](https://www.codacy.com/app/chronosis/uuid-apikey?utm_source=github.com&utm_medium=referral&utm_content=chronosis/uuid-apikey&utm_campaign=Badge_Coverage)
 
 *"API Keys for people"*
 
