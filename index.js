@@ -67,7 +67,6 @@ class UUIDAPIKey {
       return `${e1}-${e2}-${e3}-${e4}`;
     }
     throw new TypeError(`The value provide '${uuid}' is not a valid uuid.`);
-
   }
 
   toUUID(apiKey) {
@@ -95,7 +94,6 @@ class UUIDAPIKey {
       return `${s1}-${s2a}-${s2b}-${s3a}-${s3b}${s4}`;
     }
     throw new TypeError(`The value provide '${apiKey}' is not a valid apiKey.`);
-
   }
 
   check(apiKey, uuid) {
@@ -120,7 +118,6 @@ class UUIDAPIKey {
       errMsg += `The value provide '${uuid}' is not a valid uuid. `;
     }
     throw new TypeError(errMsg);
-
   }
 
   create(options) {
