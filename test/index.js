@@ -1,14 +1,16 @@
 const test = require('unit.js');
 
-let testKey = { uuid: '872a6f67-7d93-4e9c-8d9a-4637a3feff65', apiKey: 'GWN6YSX-FP9MX73-HPD4CDY-MFZFYSC' };
-let testUUID = '0b9ca335-92a8-46d8-b277-ec2ed83ac427';
+const testKey = {
+  uuid: '872a6f67-7d93-4e9c-8d9a-4637a3feff65',
+  apiKey: 'GWN6YSX-FP9MX73-HPD4CDY-MFZFYSC'
+};
+const testUUID = '0b9ca335-92a8-46d8-b277-ec2ed83ac427';
 
 describe('uuid-apikey', () => {
-
-  let MainClass = require('../');
+  const MainClass = require('../');
 
   it('load', () => {
-    let myModule = require('../');
+    const myModule = require('../');
 
     test.assert(typeof myModule === typeof MainClass);
   });
@@ -52,5 +54,4 @@ describe('uuid-apikey', () => {
   it('key creation', () => {
     test.object(MainClass.create());
   });
-
 });
