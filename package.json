@@ -1,6 +1,6 @@
 {
   "name": "uuid-apikey",
-  "version": "1.3.4a",
+  "version": "1.3.5",
   "description": "A Base32-Crockford encoded API Key generator, validator, and converter to turn UUIDs into human readable API Keys",
   "main": "index.js",
   "scripts": {
@@ -30,21 +30,21 @@
   },
   "homepage": "https://github.com/chronosis/uuid-apikey#readme",
   "devDependencies": {
-    "codacy-coverage": "^2.0.3",
-    "eslint": "^4.10.0",
+    "chai": "^4.1.2",
+    "codacy-coverage": "^2.1.1",
+    "eslint": "^4.19.1",
     "gulp": "^3.9.1",
-    "gulp-eslint": "^4.0.0",
-    "gulp-mocha": "^4.3.1",
+    "gulp-eslint": "^4.0.2",
+    "gulp-mocha": "^5.0.0",
     "gulp-prettier": "^1.1.0",
-    "mocha": "^3.4.2",
-    "nyc": "^11.3.0",
-    "prettier": "^1.8.2",
-    "unit.js": "^2.0.0"
+    "mocha": "^5.1.1",
+    "nyc": "^11.7.1",
+    "prettier": "^1.12.1"
   },
   "dependencies": {
-    "colors": "^1.1.2",
-    "commander": "^2.11.0",
+    "colors": "^1.2.4",
+    "commander": "^2.15.1",
     "encode32": "^1.1.0",
-    "uuid": "^3.1.0"
+    "uuid": "^3.2.1"
   }
 }

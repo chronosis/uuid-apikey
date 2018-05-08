@@ -1,4 +1,5 @@
-const test = require('unit.js');
+const chai = require('chai');
+const expect = chai.expect;
 
 const testKey = {
   uuid: '872a6f67-7d93-4e9c-8d9a-4637a3feff65',
@@ -12,46 +13,46 @@ describe('uuid-apikey', () => {
   it('load', () => {
     const myModule = require('../');
 
-    test.assert(typeof myModule === typeof MainClass);
+    expect(myModule.constructor.name).to.be.equal(MainClass.constructor.name);
   });
 
   it('test good UUID', () => {
-    test.assert(MainClass.isUUID(testKey.uuid));
+    expect(MainClass.isUUID(testKey.uuid)).to.be.equal(true);
   });
 
   it('test bad UUID', () => {
-    test.assert(!MainClass.isUUID(testKey.apiKey));
+    expect(MainClass.isUUID(testKey.apiKey)).to.be.equal(false);
   });
 
   it('test good API Key', () => {
-    test.assert(MainClass.isAPIKey(testKey.apiKey));
+    expect(MainClass.isAPIKey(testKey.apiKey)).to.be.equal(true);
   });
 
   it('test good lower-case API Key', () => {
-    test.assert(MainClass.isAPIKey(testKey.apiKey.toLowerCase()));
+    expect(MainClass.isAPIKey(testKey.apiKey.toLowerCase())).to.be.equal(true);
   });
 
   it('test bad API Key', () => {
-    test.assert(!MainClass.isAPIKey(testKey.uuid));
+    expect(MainClass.isAPIKey(testKey.uuid)).to.be.equal(false);
   });
 
   it('convert to UUID', () => {
-    test.assert(MainClass.isUUID(MainClass.toUUID(testKey.apiKey)));
+    expect(MainClass.isUUID(MainClass.toUUID(testKey.apiKey))).to.be.equal(true);
   });
 
   it('convert to API Key', () => {
-    test.assert(MainClass.isAPIKey(MainClass.toAPIKey(testKey.uuid)));
+    expect(MainClass.isAPIKey(MainClass.toAPIKey(testKey.uuid))).to.be.equal(true);
   });
 
   it('test good matching API Key / UUID', () => {
-    test.assert(MainClass.check(testKey.apiKey, testKey.uuid));
+    expect(MainClass.check(testKey.apiKey, testKey.uuid)).to.be.equal(true);
   });
 
   it('test not matching API Key / UUID', () => {
-    test.assert(!MainClass.check(testKey.apiKey, testUUID));
+    expect(MainClass.check(testKey.apiKey, testUUID)).to.be.equal(false);
   });
 
   it('key creation', () => {
-    test.object(MainClass.create());
+    expect(MainClass.create()).to.be.an('object');
   });
 });
