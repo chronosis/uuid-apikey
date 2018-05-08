@@ -6,7 +6,7 @@
     "mocha": true
   },
   "parserOptions": {
-      "ecmaVersion": 6,
+      "ecmaVersion": 8,
       "sourceType": "module",
       "ecmaFeatures": {
           "jsx": true
@@ -29,7 +29,8 @@
     "no-caller": "error",
     "no-div-regex": "warn",
     "no-else-return": "warn",
-    "no-empty-function": ["error", { "allow": ["constructors"] }],
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "no-empty-function": ["error", { "allow": ["constructors", "arrowFunctions"] }],
     "no-eval": "warn",
     "no-extra-label": "error",
     "no-floating-decimal": "error",
