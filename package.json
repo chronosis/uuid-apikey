@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/chronosis/uuid-apikey#readme",
   "devDependencies": {
+    "ast-types": "^0.11.3",
     "chai": "^4.1.2",
     "codacy-coverage": "^2.1.1",
     "eslint": "^4.19.1",
