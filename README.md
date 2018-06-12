@@ -1,6 +1,7 @@
 # uuid-apikey
 
 [![NPM](https://nodei.co/npm/uuid-apikey.png?downloads=true)](https://nodei.co/npm/uuid-apikey/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fchronosis%2Fuuid-apikey.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fchronosis%2Fuuid-apikey?ref=badge_shield)
 
 [![Actual version published on npm](http://img.shields.io/npm/v/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
 [![Travis build status](https://travis-ci.org/chronosis/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
@@ -171,3 +172,6 @@ uuidAPIKey.create();
 
 ## License
 MIT
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fchronosis%2Fuuid-apikey.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fchronosis%2Fuuid-apikey?ref=badge_large)
