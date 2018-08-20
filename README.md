@@ -22,7 +22,7 @@ A generator, validator, and converter that transforms UUIDs into human-readable 
 One common use for this library is in REST APIs, by storing a UUIDs in a host DB but displaying the human-readable API Key to a user.
 Another use for this library is creating and validating product keys for distributed software.
 
-***NOTE***: This package makes use of ES6 and ES7 functionality. If you are using a version of node `< v8.0`, then you will need to use babel or a polyfill for compatibility.
+***NOTE***: This package makes use of ES6 and ES7 functionality. If you are using a version of node prior to version 8 then you will probably need to use a polyfill (e.g. babel) for compatibility.
 
 ## Installation
 You can install `uuid-apikey` with NPM.
