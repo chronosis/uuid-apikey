@@ -30,22 +30,21 @@
   },
   "homepage": "https://github.com/chronosis/uuid-apikey#readme",
   "devDependencies": {
-    "ast-types": "^0.11.3",
     "chai": "^4.1.2",
     "codacy-coverage": "^2.1.1",
     "eslint": "^4.19.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-eslint": "^4.0.2",
     "gulp-mocha": "^5.0.0",
     "gulp-prettier": "^1.1.0",
-    "mocha": "^5.1.1",
-    "nyc": "^11.7.1",
-    "prettier": "^1.12.1"
+    "mocha": "^5.2.0",
+    "nyc": "^11.9.0",
+    "prettier": "^1.14.2"
   },
   "dependencies": {
-    "colors": "^1.2.4",
-    "commander": "^2.15.1",
+    "colors": "^1.3.1",
+    "commander": "^2.17.1",
     "encode32": "^1.1.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.3.2"
   }
 }
