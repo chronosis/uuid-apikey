@@ -170,4 +170,4 @@ uuidAPIKey.create();
 | noDashes | boolean | Generates an APIKey without dashes |
 
 ## License
-MIT
+Copyright (c) 2018,2019 Jay Reardon -- Licensed under the MIT license.
