@@ -14,13 +14,14 @@
 A generator, validator, and converter that transforms UUIDs into human-readable Base32-Crockford encoded API Keys.
 
  * API Keys are 31 characters in length consisting of 4 groups of 7 characters separated by dashes *(e.g. XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX)*
- * They avoids the problem that Base64 encoded values can create
-   * Fully upper-case, but treat lower-case for their equivalents *(e.g. a = A)*
-   * No tricky characters, but treat them equivalently *(i.e. 0 = O / 1 = L = I )*
-   * No characters that inadvertently lead to common profanities *(i.e. letter U is omitted)*
+ * They avoids the problem that Base64 encoded values can create, such as:
+   * API Keys are entirely in upper-case, but treat lower-case values as their upper-case counterparts *(e.g. a ≡ A)*
+   * API Keys do not use tricky characters (i.e. the letter O, the letter L, and the letter I), but treat them equivalently with other characters they could be confused for *(i.e. 0 ≡ O ≡ o / 1 ≡ L ≡ I ≡ l ≡ i )*
+   * API Keys omit letters which could inadvertently lead to common profanities *(i.e. the letter U)*
 
-One common use for this library is in REST APIs, by storing a UUIDs in a host DB but displaying the human-readable API Key to a user.
-Another use for this library is creating and validating product keys for distributed software.
+## Common Uses
+ * Generating and using REST API Keys where a UUID is stored in a host DB but the API Key is shown to the user.
+ * Generating APIKeys and storing the associated UUIDs for use as software license keys in software distribution.
 
 ***NOTE***: This package makes use of ES6 and ES7 functionality. If you are using a version of node prior to version 8 then you will probably need to use a polyfill (e.g. babel) for compatibility.
 
