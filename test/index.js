@@ -26,7 +26,7 @@ describe('uuid-apikey', () => {
   });
 
   it('test empty UUID', () => {
-    expect(() => { MainClass.isUUID(null) }).to.throw(ReferenceError);
+    expect(() => { MainClass.isUUID(null); }).to.throw(ReferenceError);
   });
 
   it('test good API Key', () => {
@@ -41,7 +41,7 @@ describe('uuid-apikey', () => {
     expect(MainClass.isAPIKey(testKey.uuid)).to.be.equal(false);
   });
   it('test empty API Key', () => {
-    expect(() => { MainClass.isAPIKey(null) }).to.throw(ReferenceError);
+    expect(() => { MainClass.isAPIKey(null); }).to.throw(ReferenceError);
   });
 
   it('convert to UUID', () => {
@@ -49,11 +49,11 @@ describe('uuid-apikey', () => {
   });
 
   it('convert bad UUID', () => {
-    expect(() => {MainClass.isUUID(MainClass.toUUID('----'))}).to.throw(TypeError);
+    expect(() => { MainClass.isUUID(MainClass.toUUID('----')); }).to.throw(TypeError);
   });
 
   it('convert empty UUID', () => {
-    expect(() => {MainClass.isUUID(MainClass.toUUID(null))}).to.throw(ReferenceError);
+    expect(() => { MainClass.isUUID(MainClass.toUUID(null)); }).to.throw(ReferenceError);
   });
 
   it('convert to APIKey', () => {
@@ -61,27 +61,27 @@ describe('uuid-apikey', () => {
   });
 
   it('convert bad APIKey', () => {
-    expect(() => {MainClass.isUUID(MainClass.toAPIKey('----'))}).to.throw(TypeError);
+    expect(() => { MainClass.isUUID(MainClass.toAPIKey('----')); }).to.throw(TypeError);
   });
 
   it('convert empty APIKey', () => {
-    expect(() => {MainClass.isUUID(MainClass.toAPIKey(null))}).to.throw(ReferenceError);
+    expect(() => { MainClass.isUUID(MainClass.toAPIKey(null)); }).to.throw(ReferenceError);
   });
 
   it('test empty API Key', () => {
-    expect(() => { MainClass.check(null, testKey.uuid) }).to.throw(ReferenceError);
+    expect(() => { MainClass.check(null, testKey.uuid); }).to.throw(ReferenceError);
   });
 
   it('test empty UUID Key', () => {
-    expect(() => { MainClass.check(testKey.apiKey, null) }).to.throw(ReferenceError);
+    expect(() => { MainClass.check(testKey.apiKey, null); }).to.throw(ReferenceError);
   });
 
   it('test bad API Key', () => {
-    expect(() => { MainClass.check('-----', testKey.uuid) }).to.throw(TypeError);
+    expect(() => { MainClass.check('-----', testKey.uuid); }).to.throw(TypeError);
   });
 
   it('test bad UUID Key', () => {
-    expect(() => { MainClass.check(testKey.apiKey, '----') }).to.throw(TypeError);
+    expect(() => { MainClass.check(testKey.apiKey, '----'); }).to.throw(TypeError);
   });
 
   it('test good matching API Key / UUID', () => {
