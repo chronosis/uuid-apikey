@@ -16,6 +16,7 @@
   "rules": {
     "no-console": "warn",
     "no-control-regex": "warn",
+    "no-prototype-builtins": "warn",
     "block-scoped-var": "warn",
     "complexity": ["warn", 15],
     "consistent-return": "warn",
