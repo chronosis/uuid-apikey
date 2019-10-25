@@ -5,7 +5,6 @@
 [![Actual version published on npm](http://img.shields.io/npm/v/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
 [![Travis build status](https://travis-ci.org/chronosis/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
 [![Total npm module downloads](http://img.shields.io/npm/dt/uuid-apikey.svg)](https://www.npmjs.org/package/uuid-apikey)
-[![Package Quality](http://npm.packagequality.com/shield/uuid-apikey.svg)](http://packagequality.com/#?package=uuid-apikey)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6c4ea28976c54c0493f8c0a4e742a95a)](https://www.codacy.com/app/chronosis/uuid-apikey?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chronosis/uuid-apikey&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/6c4ea28976c54c0493f8c0a4e742a95a)](https://www.codacy.com/app/chronosis/uuid-apikey?utm_source=github.com&utm_medium=referral&utm_content=chronosis/uuid-apikey&utm_campaign=Badge_Coverage)
 
@@ -27,8 +26,8 @@ KCXC9JD-08M4WGH-M9294W1-B6RTBTH
  * API Keys are ideal for readable transports where they may be manually entered by a human and fonts may cause confusion.
 
  For example, Base64 encoded values can be problematic when a human tried to type them in and Base32-Crockford API Keys avoid this by doing the following:
-   * API Keys have no lower case values. The API Key parser handles all lower-case values as their upper-case equivalent. *(e.g. `a` ≡ `A`)*
-   * API Keys do not use tricky characters that can be confused in some fonts. The parser handled confusing characters as the same value.  
+   * API Keys have no lower-case characters. The API Key parser handles all lower-case characters as their upper-case equivalent. *(e.g. `a` ≡ `A`)*
+   * API Keys do not use tricky characters that can be confused in some fonts. The parser handled confusing characters as the same values.  
      * the letters `O`, `o`, and the number `0`
      * the letters `L`, `l`, `I`, `i`, and the number `1`
    * API Keys do not use the letter `U` which could inadvertently lead to common English profanities.
@@ -37,7 +36,7 @@ KCXC9JD-08M4WGH-M9294W1-B6RTBTH
  * Generating and using REST API Keys where a UUID is stored in a host DB but the API Key is shown to the user.
  * Generating APIKeys and storing the associated UUIDs for use as software license keys in software distribution.
 
-***NOTE***: This package makes use of ES6 and ES7 functionality. If you are using a version of node prior to version 8 then you will probably need to use a polyfill (e.g. babel) for compatibility.
+***NOTE***: This package makes use of ES6 and ES7 functionality. If you are using a version of node prior to version 8 then you will need to use a polyfill (e.g. babel) for compatibility.
 
 ## Installation
 You can install `uuid-apikey` with NPM.
