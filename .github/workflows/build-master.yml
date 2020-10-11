@@ -49,6 +49,7 @@ jobs:
           npm publish
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CODACY_PROJECT_TOKEN:  ${{ secrets.CODACY_PROJECT_TOKEN }}          
 
       - name: Notify slack success
         if: success()
