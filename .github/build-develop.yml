@@ -1,0 +1,71 @@
+name: Build and Test Develop
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  name: 'Develop Testing'
+  runs-on: ubuntu-latests
+  strategy: 
+    matrix:
+      node-version: [12.x]
+      slack-channel: ['build-monitoring']
+  steps:
+    - name: 'Notify build start'
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        channel: ${{ matrix.slack-channel }}
+        status: STARTED
+        color: good
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}  
+        
+    - name: 'Checkout'
+      uses: actions/checkout@master
+
+    - name: 'Use Node.js ${{ matrix.node-version }}'
+      uses: actions/setup-node@v1
+      with: 
+        always-auth: true
+        node-version: ${{ matrix.node-version }}
+
+    - name: 'NPM Test'
+      shell: bash
+      run: |
+        npm install -g gulp-cli gulp@4
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        npm config set registry http://registry.npmjs.org
+        npm config set always-auth true
+        sudo mkdir ~/.npm || true
+        sudo chown -R $USER:$GROUP ~/.npm || true
+        sudo chown -R $USER:$GROUP ~/.config || true
+        npm ci
+        gulp
+        npm run coverage
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Notify slack success
+      if: success()
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        # Updates existing message from the first step
+        message_id: ${{ steps.slack.outputs.message_id }}
+        channel: ${{ matrix.slack-channel }}
+        status: SUCCESS
+        color: good        
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+    - name: Notify slack fail
+      if: failure()
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        message_id: ${{ steps.slack.outputs.message_id }}      
+        channel: ${{ matrix.slack-channel }}
+        status: FAILED
+        color: danger
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}        
