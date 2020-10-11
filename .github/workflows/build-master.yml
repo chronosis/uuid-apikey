@@ -53,7 +53,6 @@ jobs:
       - name: Notify slack success
         if: success()
         uses: voxmedia/github-action-slack-notify-build@v1
-        id: slack        
         with:
           # Updates existing message from the first step
           message_id: ${{ steps.slack.outputs.message_id }}
@@ -66,7 +65,6 @@ jobs:
       - name: Notify slack fail
         if: failure()
         uses: voxmedia/github-action-slack-notify-build@v1
-        id: slack        
         with:
           message_id: ${{ steps.slack.outputs.message_id }}      
           channel: ${{ matrix.slack-channel }}
