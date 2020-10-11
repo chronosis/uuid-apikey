@@ -1,4 +1,4 @@
-name: Build and Test Develop
+name: Build and Test Master
 
 on:
   push:
