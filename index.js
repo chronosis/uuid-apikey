@@ -1,7 +1,8 @@
 // index.js
 
 // Dependencies
-const base32 = require('encode32'), uuidv4 = require('uuid/v4');
+const base32 = require('encode32');
+const uuidv4 = require('uuid').v4;
 
 // APIKeys are a Base32-Crockford encoded representation of UUIDs
 // Base32-Crockford encoding is used to maintain human readability of the values
