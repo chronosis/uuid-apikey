@@ -1,9 +1,9 @@
 {
   "name": "uuid-apikey",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A Base32-Crockford encoded API Key generator, validator, and converter to turn UUIDs into human readable API Keys",
   "main": "index.js",
-  "types": "index.d.ts",  
+  "types": "index.d.ts",
   "scripts": {
     "test": "nyc mocha",
     "build": "gulp",
