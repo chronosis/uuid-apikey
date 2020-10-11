@@ -20,7 +20,7 @@ jobs:
         with:
           channel: ${{ matrix.slack-channel }}
           status: STARTED
-          color: good
+          color: warning
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}  
           
