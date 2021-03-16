@@ -1,6 +1,6 @@
 {
   "name": "uuid-apikey",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "A Base32-Crockford encoded API Key generator, validator, and converter to turn UUIDs into human readable API Keys",
   "main": "index.js",
   "types": "index.d.ts",
@@ -13,7 +13,7 @@
     "pretty": "gulp pretty"
   },
   "bin": {
-    "apiKeyTool": "./bin/apiKeyTool.js"
+    "apiKeyTool": "bin/apiKeyTool.js"
   },
   "repository": {
     "type": "git",
