@@ -9,27 +9,27 @@ jobs:
   master-push:
     name: 'Develop Testing'
     runs-on: ubuntu-latest
-    strategy: 
+    strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
         slack-channel: ['build-monitoring']
     steps:
       - name: 'Notify build start'
         uses: voxmedia/github-action-slack-notify-build@v1
-        id: slack        
+        id: slack
         with:
           channel: ${{ matrix.slack-channel }}
           status: STARTED
           color: warning
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}  
-          
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
       - name: 'Checkout'
         uses: actions/checkout@master
 
       - name: 'Use Node.js ${{ matrix.node-version }}'
         uses: actions/setup-node@v1
-        with: 
+        with:
           always-auth: true
           node-version: ${{ matrix.node-version }}
 
@@ -49,7 +49,7 @@ jobs:
           npm publish
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          CODACY_PROJECT_TOKEN:  ${{ secrets.CODACY_PROJECT_TOKEN }}          
+          CODACY_PROJECT_TOKEN:  ${{ secrets.CODACY_PROJECT_TOKEN }}
 
       - name: Notify slack success
         if: success()
@@ -59,7 +59,7 @@ jobs:
           message_id: ${{ steps.slack.outputs.message_id }}
           channel: ${{ matrix.slack-channel }}
           status: SUCCESS
-          color: good        
+          color: good
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 

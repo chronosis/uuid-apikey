@@ -1,0 +1,44 @@
+name: auto-merge
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: 'Use Node.js ${{ matrix.node-version }}'
+        uses: actions/setup-node@v1
+        with:
+          always-auth: true
+          node-version: ${{ matrix.node-version }}
+
+      - name: 'NPM Test'
+        shell: bash
+        run: |
+          npm version patch
+          npx -c 'echo "$npm_package_version"'
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          npm config set registry http://registry.npmjs.org
+          npm config set always-auth true
+          sudo mkdir ~/.npm || true
+          sudo chown -R $USER:$GROUP ~/.npm || true
+          sudo chown -R $USER:$GROUP ~/.config || true
+          npm ci
+          gulp
+          npm run coverage
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CODACY_PROJECT_TOKEN:  ${{ secrets.CODACY_PROJECT_TOKEN }}
+
+      - uses: ahmadnassri/action-dependabot-auto-merge@v2
+        with:
+          target: minor
+          github-token: ${{ secrets.mytoken }}
