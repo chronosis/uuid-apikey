@@ -36,10 +36,19 @@ let uuidCheck, apiKeyCheck, compareCheck, out, opts;
 
 opts = program.opts();
 
+const pLog = (type, value) => {
+  switch (type) {
+    case 'uuid':
+      return `${colors.cyan('UUID')}(${colors.grey.underline(value)})`;
+    case 'apikey':
+      return `${colors.cyan('APIKey')}(${colors.grey.underline(value)})`;
+  }
+}
+
 if (opts.generate) {
   out = uuidAPIKey.create();
-  console.log(`  ${colors.cyan('UUID')}(${colors.grey.underline(out.uuid)})`);
-  console.log(`  ${colors.cyan('APIKey')}(${colors.grey.underline(out.apiKey)})`);
+  console.log(pLog('uuid', out.uuid));
+  console.log(pLog('apikey', out.apiKey));
 } else if (opts.check) {
   if (!opts.uuid && !opts.apikey) {
     program.help();
@@ -49,13 +58,13 @@ if (opts.generate) {
   if (opts.uuid) {
     uuidCheck = uuidAPIKey.isUUID(opts.uuid);
     out = uuidCheck ? colors.green('valid') : colors.red('invalid');
-    console.log(`${colors.cyan('UUID')}(${colors.grey.underline(opts.uuid)}) : ${out}`);
+    console.log(pLog('uuid', opts.uuid) + ` : ${out}`);
   }
 
   if (opts.apikey) {
     apiKeyCheck = uuidAPIKey.isAPIKey(opts.apikey);
     out = apiKeyCheck ? colors.green('valid') : colors.red('invalid');
-    console.log(`${colors.cyan('APIKey')}(${colors.grey.underline(opts.apikey)})    : ${out}`);
+    console.log(pLog('apikey', opts.apikey) + ` : ${out}`);
   }
 
   // Both were passed and both are valid
@@ -76,18 +85,18 @@ if (opts.generate) {
   if (opts.uuid) {
     uuidCheck = uuidAPIKey.isUUID(opts.uuid);
     if (uuidCheck) {
-      console.log(`${colors.cyan('UUID')}(${colors.grey.underline(opts.uuid)}) ${colors.yellow('=>')} ${colors.cyan('APIKey')}(${colors.grey.underline(uuidAPIKey.toAPIKey(opts.uuid))})`);
+      console.log(pLog('uuid', opts.uuid) + ` ${colors.yellow('=>')} ` + pLog('apikey', uuidAPIKey.toAPIKey(opts.uuid)));
     } else {
-      console.log(`${colors.cyan('UUID')}(${colors.grey.underline(opts.uuid)}) ${colors.red('is invalid')}.`);
+      console.log(pLog('uuid', opts.uuid) + ` ${colors.red('is invalid')}.`);
     }
   }
 
   if (opts.apikey) {
     apiKeyCheck = uuidAPIKey.isAPIKey(opts.apikey);
     if (apiKeyCheck) {
-      console.log(`${colors.cyan('APIKey')}(${colors.grey.underline(opts.apikey)})    ${colors.yellow('=>')} ${colors.cyan('UUID')}(${colors.grey.underline(uuidAPIKey.toUUID(opts.apikey))})`);
+      console.log(pLog('apikey', opts.apikey) + ` ${colors.yellow('=>')} ` + pLog('uuid', uuidAPIKey.toUUID(opts.apikey)));
     } else {
-      console.log(`${colors.cyan('APIKey')}(${colors.grey.underline(opts.apikey)}) ${colors.red('is invalid')}.`);
+      console.log(pLog('apikey', opts.apikey) + ` ${colors.red('is invalid')}.`);
     }
   }
 
