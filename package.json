@@ -12,6 +12,10 @@
     "coverage": "nyc --reporter=lcov mocha && cat ./coverage/lcov.info | codacy-coverage",
     "pretty": "gulp pretty"
   },
+  "files": [
+    "index.d.ts",
+    "bin"
+  ],
   "bin": {
     "apiKeyTool": "bin/apiKeyTool.js"
   },
