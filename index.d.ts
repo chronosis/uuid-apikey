@@ -1,5 +1,3 @@
-declare module 'uuid-apikey';
-
 export interface UUIDOptions {
   noDashes: boolean;
 }
@@ -10,6 +8,8 @@ export interface ApiKeyInfo {
 }
 
 declare class UUIDAPIKey {
+  readonly defaultOptions: UUIDOptions;
+
   checkDashes(positions: number[], str: string): boolean;
   isUUID(uuid: string): boolean;
   isAPIKey(apiKey: string): boolean;
@@ -19,5 +19,5 @@ declare class UUIDAPIKey {
   create(options?: Partial<UUIDOptions>): ApiKeyInfo;
 }
 
-declare let obj: UUIDAPIKey;
+declare const obj: UUIDAPIKey;
 export default obj;

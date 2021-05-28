@@ -5,6 +5,7 @@ const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 // Prettifying
 const prettier = require('gulp-prettier');
+const { exec } = require('child_process');
 
 const config = require('./build.config');
 const prettyConf = require('./.prettierrc.json');
@@ -40,6 +41,16 @@ gulp.task('test', () => {
     });
 });
 
+gulp.task('test-tsd', (done) => {
+  exec('node_modules/.bin/tsd', (err, stdout, stderr) => {
+    // eslint-disable-next-line no-console
+    console.log(stdout);
+    // eslint-disable-next-line no-console
+    console.log(stderr);
+    done(err);
+  });
+});
+
 gulp.task('fix', () => {
   return gulp
     .src(allJSFiles)
@@ -61,4 +72,4 @@ gulp.task('pretty', () => {
     }));
 });
 
-gulp.task('default', gulp.series('lint', 'test'));
+gulp.task('default', gulp.series('lint', 'test', 'test-tsd'));
