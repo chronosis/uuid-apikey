@@ -6,6 +6,7 @@
   "types": "index.d.ts",
   "scripts": {
     "test": "nyc mocha",
+    "test-types": "tsd",
     "build": "gulp",
     "fix": "gulp fix",
     "lint": "gulp lint",
@@ -14,6 +15,9 @@
   },
   "bin": {
     "apiKeyTool": "bin/apiKeyTool.js"
+  },
+  "tsd": {
+    "directory": "test"
   },
   "repository": {
     "type": "git",
@@ -43,7 +47,8 @@
     "gulp-prettier": "^3.0.0",
     "mocha": "^8.1.3",
     "nyc": "^15.1.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "tsd": "^0.16.0"
   },
   "dependencies": {
     "colors": "^1.4.0",
