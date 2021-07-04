@@ -1,0 +1,9 @@
+# Basic set up for three package managers
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    target-branch: "develop"
+    schedule:
+      interval: "daily"
