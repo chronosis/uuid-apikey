@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^8.0.0",
+    "commander": "^9.4.0",
     "encode32": "^1.1.0",
     "uuid": "^8.3.1"
   }
