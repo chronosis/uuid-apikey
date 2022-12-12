@@ -41,7 +41,7 @@
     "gulp-eslint": "^6.0.0",
     "gulp-mocha": "^8.0.0",
     "gulp-prettier": "^3.0.0",
-    "mocha": "^9.0.2",
+    "mocha": "^10.2.0",
     "nyc": "^15.1.0",
     "prettier": "^2.1.2"
   },
